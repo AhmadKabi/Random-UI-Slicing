@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         return layoutInflater.inflate(
             layoutRes,
             root,
-            false
+            true
         )
 
     }
