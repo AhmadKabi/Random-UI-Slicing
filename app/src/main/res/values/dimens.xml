@@ -70,7 +70,9 @@
 
 
     <dimen name="h_story">@dimen/dp_80</dimen>
+    <dimen name="h_story_icon_add">@dimen/dp_24</dimen>
     <dimen name="t_story_ring_on">@dimen/dp_4</dimen>
     <dimen name="t_story_ring_off">@dimen/dp_2</dimen>
+    <dimen name="aa">1</dimen>
 
 </resources>
