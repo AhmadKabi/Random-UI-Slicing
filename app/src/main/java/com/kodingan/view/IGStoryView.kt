@@ -2,6 +2,7 @@ package com.kodingan.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -10,12 +11,16 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.setPadding
 import com.kodingan.randomuislicing.R
 
+
 class IGStoryView(context: Context, val attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var state: Int = 1
+    private val defaultWidth = resources.getDimension(R.dimen.h_story).toInt()
+    private val defaultHeight = resources.getDimension(R.dimen.h_story).toInt()
+    private var layoutWidth = WRAP_CONTENT
+    private var layoutHeight = WRAP_CONTENT
 
     init {
-
         setPadding(resources.getDimensionPixelSize(R.dimen.dp_5))
 
         getAttrs()
@@ -42,19 +47,30 @@ class IGStoryView(context: Context, val attrs: AttributeSet) : ConstraintLayout(
             0
         ).apply {
             state = getInteger(R.styleable.IGStoryView_state, 0)
+            layoutWidth  = getLayoutDimension(R.styleable.IGStoryView_android_layout_height, 0)
+            layoutHeight  = getLayoutDimension(R.styleable.IGStoryView_android_layout_width, 0)
             recycle()
         }
     }
 
     private fun buildImage() {
-        val imageView = CircleImageView(context)
-        imageView.id = R.id.ig_story_image
-        imageView.setImageResource(R.drawable.cat)
+        val imageView = AppCompatImageView(context)
         val params = LayoutParams(
-            resources.getDimension(R.dimen.h_story).toInt(),
-            resources.getDimension(R.dimen.h_story).toInt()
+            if(layoutWidth == WRAP_CONTENT) defaultWidth else MATCH_PARENT,
+            if(layoutHeight == WRAP_CONTENT) defaultHeight else MATCH_PARENT
         )
         imageView.layoutParams = params
+
+//        imageView.setImageResource(R.drawable.cat)
+//        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+
+//        Glide.with(context)
+//            .load(R.drawable.cat)
+//            .circleCrop()
+//            .into(imageView)
+
+        imageView.id = R.id.ig_story_image
+
 
         addView(imageView)
 
@@ -79,6 +95,5 @@ class IGStoryView(context: Context, val attrs: AttributeSet) : ConstraintLayout(
         set.applyTo(this)
 
     }
-
 
 }

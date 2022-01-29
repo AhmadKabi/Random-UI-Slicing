@@ -6,6 +6,8 @@
             <enum name="unread" value="1"/>
             <enum name="read" value="2"/>
         </attr>
+        <attr name="android:layout_width"/>
+        <attr name="android:layout_height"/>
     </declare-styleable>
 
 
