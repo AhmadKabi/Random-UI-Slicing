@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Random UI Slicing</string>
 
-    <integer name="aaa">3</integer>
 </resources>
