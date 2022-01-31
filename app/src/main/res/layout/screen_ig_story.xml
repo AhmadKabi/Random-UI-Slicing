@@ -16,5 +16,4 @@
         app:state="none"
         app:layout_constraintTop_toTopOf="parent"/>
 
-
 </FrameLayout>

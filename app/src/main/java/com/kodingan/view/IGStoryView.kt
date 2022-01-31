@@ -12,7 +12,6 @@ import androidx.core.view.setPadding
 import com.bumptech.glide.Glide
 import com.kodingan.randomuislicing.R
 
-
 class IGStoryView(context: Context, private val attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var state: Int = stateNone
